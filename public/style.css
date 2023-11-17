@@ -4,23 +4,53 @@ body {
     font-family: 'Playfair Display', serif;
 }
 
+.hamburgare {
+    margin: 20px;
+    border: 2px dashed #f75eaa
+    text-align center; /* Lägg till detta för att centrera texten */
+
+} 
+
 .ingredienser > ul > li:first-child {
     color: #ff2200;
     text-transform: uppercase;
-    
 }
 
 .ingredienser img {
-    border: 2px solid #f9efef;
-    
+    border: 2px solid #f9efef;   
 }
+
+.ingredienser {
+    margin: 5px;
+    padding: 10px;
+} 
+
 
 #väljhamburgare {
     background-color: black;
     color: whitesmoke;
+    padding: 20px;
+   
 }
 
 button:hover {
     background-color: rgb(249, 106, 156);
-    cursor: pointer;
+    cursor: pointer; /* Lägg till en markör */
+}
+
+.skicka {
+    margin: 20px; /* Space runt beställningsknappen */
+}
+
+
+.rubrik {
+    margin-top: 90px;
+    margin-bottom: 90px;
+  
+}
+
+.kundinformation {
+    padding: 30px;
+    margin: 20px;
+    border: 2px dashed #f75eaa
 }
