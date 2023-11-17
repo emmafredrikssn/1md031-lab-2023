@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+body {
+    font-family: 'Playfair Display', serif;
+}
+
+.ingredienser > ul > li:first-child {
+    color: #ff2200;
+    text-transform: uppercase;
+    
+}
+
+.ingredienser img {
+    border: 2px solid #f9efef;
+    
+}
+
+#väljhamburgare {
+    background-color: black;
+    color: whitesmoke;
+}
+
+button:hover {
+    background-color: rgb(249, 106, 156);
+    cursor: pointer;
+}

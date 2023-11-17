@@ -1,53 +1,69 @@
 <!DOCTYPE HTML>
+
 <html lang="en">
-   <head>
-       <title>BURGIR</title>
-       <meta charset="utf-8"/>
 
-    <body>
-        <header><h1>Välkommen till BURGIR! </h1></header>
-    </body>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-   <main>
-        <section>
+</head>
+
+<body>
+    <section>
+    <header>
+        <h1>Välkommen till BURGIR! </h1>
+    </header>
+    </section>
+
+    <main>
+        <section class="hamburgare" id="väljhamburgare">
             <div style="display: inline-block;">
-            <h1> Välj din burgir </h1> 
-            Här väljer du din hamburgare:
+                <h1> Välj din burgir </h1>
+                Här väljer du din hamburgare:
 
-            <h1> Vegetarisk dröm </h1>
-            <img src="https://images-bonnier.imgix.net/files/ifo/production/20220412084608/Kødfri-burger-1.jpg?auto=compress,format&w=1024%201024w" alt="Span" title="Hamburgare 1" style="width:200px;">
-            <ul>
-                <li>Bönbaserad</li>
-                <li>Massa ost och grönsaker</li>
-                <li>Picklad rödlök</li>
-            </ul>
+                <div class="ingredienser">
+                    <h1> Veggie Bliss </h1>
+                    <img src="https://images-bonnier.imgix.net/files/ifo/production/20220412084608/Kødfri-burger-1.jpg?auto=compress,format&w=1024%201024w"
+                        alt="Span" title="Hamburgare 1" style="width:200px;">
+                    <ul>
+                        <li>Bönbaserad</li>
+                        <li>Massa ost och grönsaker</li>
+                        <li>Picklad rödlök</li>
+                    </ul>
+
+                </div>
             </div>
 
             <div style="display: inline-block;">
-            
-                <h1> En klassiker </h1>
-                <img src="https://www.mathiaszachau.com/wp-content/uploads/2016/05/saftiga-hamburgare-e1463035643226.jpg" alt="Span" title="Hamburgare 2" style="width:200px;">
-                <ul>
-                    <li>Kött och bacon</li>
-                    <li>Isbergssallad och tomat</li>
-                    <li>BBQ</li>
-                </ul>
-                </div>
-
-                <div style="display: inline-block;">
-            
-                    <h1> Himmelsk kycklingburgare </h1>
-                    <img src="https://marleyspoon.com/media/recipes/80625/main_photos/large/bbq_hahnchenburger_mit_schnittlauchcreme-900bb4cacf5b69472d32eb98b90f6da9.jpeg" alt="Span" title="Hamburgare 3" style="width:200px;">
+                <div class="ingredienser">
+                    <h1> Meaty Marvel </h1>
+                    <img src="https://www.mathiaszachau.com/wp-content/uploads/2016/05/saftiga-hamburgare-e1463035643226.jpg"
+                        alt="Span" title="Hamburgare 2" style="width:200px;">
                     <ul>
-                        <li>Kyckling</li>
-                        <li>Grillad majs</li>
-                        <li>Vitlökssås</li>
+                        <li>Kött och bacon</li>
+                        <li>Isbergssallad och tomat</li>
+                        <li>BBQ</li>
                     </ul>
-                    </div>
-           </section>
+                </div>
+            </div>
 
-        
-        <section>
+            <div style="display: inline-block;">
+                <div class="ingredienser">
+
+                <h1> Chicken Charm </h1>
+                <img src="https://marleyspoon.com/media/recipes/80625/main_photos/large/bbq_hahnchenburger_mit_schnittlauchcreme-900bb4cacf5b69472d32eb98b90f6da9.jpeg"
+                    alt="Span" title="Hamburgare 3" style="width:200px;">
+                <ul>
+                    <li>Kyckling</li>
+                    <li>Grillad majs</li>
+                    <li>Vitlökssås</li>
+                </ul>
+            </div>
+                 </div>
+        </section>
+
+
+        <section id = "kundinformation">
             <h1> Kund information </h1>
             Här tillhandhåller du nödvändig information:
 
@@ -74,17 +90,17 @@
                     <option>Kortbetalning</option>
                     <option>Swish</option>
                     <option>Klarna</option>
-                    <option>PayPal</option>
+                    <option>Bitcoin</option>
                 </select>
-             </p>
+            </p>
 
-             <p>
-                 <label for="gender">Kön: </label><br>
-                 <input type="radio" id="male" name="gender" value="male">
-                  <label for="male">Man</label><br>
-             </p>
+            <p>
+                <label for="gender">Kön: </label><br>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Man</label><br>
+            </p>
 
-             <p>
+            <p>
                 <input type="radio" id="female" name="gender" value="female">
                 <label for="female">Kvinna</label><br>
             </p>
@@ -94,29 +110,34 @@
                 <label for="non-binary">Icke - binär</label><br>
             </p>
 
-             <p>
+            <p>
                 <input type="radio" id="ej-ange" name="gender" value="ej ange" checked>
                 <label for="ej-ange">Vill ej ange</label><br>
-             </p>
+            </p>
 
         </section>
 
         <button type="submit">
             Skicka beställning<br>
-            <img src="https://img.freepik.com/free-vector/delivery-staff-ride-motorcycles-shopping-concept_1150-34879.jpg" style="width:100px; height:60px;">
+            <img src="https://cdn.pixabay.com/photo/2016/05/30/14/10/delivery-guy-1424808_1280.png"
+                style="width:90px; height:60px;">
         </button>
 
-   </main>
 
 
 
-   <hr>
-   <footer>
-    &copy; 
-    End notes
-   </footer>
 
-   </head>
-   <body> 
-   </body>
+    </main>
+
+
+
+    <hr>
+    <footer>
+        &copy;
+        End notes
+    </footer>
+
+</body>
+
+
 </html>
