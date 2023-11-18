@@ -6,9 +6,7 @@ body {
 
 .hamburgare {
     margin: 20px;
-    border: 2px dashed #f75eaa
-    text-align center; /* Lägg till detta för att centrera texten */
-
+    border: 2px dashed #56bfdf
 } 
 
 .ingredienser > ul > li:first-child {
@@ -33,8 +31,8 @@ body {
    
 }
 
-button:hover {
-    background-color: rgb(249, 106, 156);
+button:hover { /* Blir blå när musen rör knappen, deliverykillen tutar iväg på mopeden! */
+    background-color: rgb(135, 213, 240);
     cursor: pointer; /* Lägg till en markör */
 }
 
@@ -43,14 +41,36 @@ button:hover {
 }
 
 
-.rubrik {
-    margin-top: 90px;
-    margin-bottom: 90px;
-  
-}
-
-.kundinformation {
+.kundinformation {  /* Rutan med kundinformation */
     padding: 30px;
     margin: 20px;
-    border: 2px dashed #f75eaa
+    border: 2px dashed #56bfdf
 }
+
+.rubrik { /* Både anslagsbilden och välkommen */
+    margin: 20px; 
+    overflow: hidden;
+    width: 96vw; 
+    height: 40vh; 
+    position: relative; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.välkommen { /* Placerar "Välkommen till Burgir!" */
+    position: absolute;
+    top: 45%; /* Position vid vertikalt centrum */
+    left: 50%; /* Position vid horizontallt centrum */
+    transform: translate(-50%, -50%); /* Centrera texten */
+    color: rgb(17, 17, 17);
+    opacity: 1;
+    z-index: 1; /* Sätt ett högre z-index för att se till att texten ligger över bilden */
+}
+
+#anslagsbild { /* Skapar hemsidans anslagsbild */
+   opacity: 0.73; /* Väljer transparens mellan 0 och 1 */
+   width: 100%; 
+   object-fit: cover; /* Behåll sidoförhållandet och täck hela bredden */
+}
+
+
