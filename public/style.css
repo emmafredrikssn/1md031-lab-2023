@@ -18,10 +18,7 @@ body {
     border: 2px solid #f9efef;   
 }
 
-.ingredienser {
-    margin: 5px;
-    padding: 10px;
-} 
+
 
 
 #väljhamburgare {
@@ -59,10 +56,11 @@ button:hover { /* Blir blå när musen rör knappen, deliverykillen tutar iväg 
 
 .välkommen { /* Placerar "Välkommen till Burgir!" */
     position: absolute;
-    top: 45%; /* Position vid vertikalt centrum */
+    top: 35%; /* Position vid vertikalt centrum */
     left: 50%; /* Position vid horizontallt centrum */
     transform: translate(-50%, -50%); /* Centrera texten */
     color: rgb(17, 17, 17);
+    font-size: 3em;
     opacity: 1;
     z-index: 1; /* Sätt ett högre z-index för att se till att texten ligger över bilden */
 }
@@ -73,4 +71,10 @@ button:hover { /* Blir blå när musen rör knappen, deliverykillen tutar iväg 
    object-fit: cover; /* Behåll sidoförhållandet och täck hela bredden */
 }
 
-
+.wrapper {
+    display: grid;
+    grid-gap: 5em;
+    grid-template-columns: 14em 14em 14em;
+    padding-left: 30px;
+    padding-bottom: 45px;
+}
