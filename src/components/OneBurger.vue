@@ -20,6 +20,10 @@
         Innehåller gluten
       </div>
 
+      Välj antal:  
+      <button v-on:click="Increase(key)"> + </button>
+      {{ amountOrdered }}
+      <button v-on:click="Decrease(key)"> - </button>
    
   </div> 
   </template>
@@ -29,8 +33,29 @@
     name: 'OneBurger',
     props: {
       burger: Object
+    },
+
+    data: function () {
+    return {
+      amountOrdered: 0,
+    }
+  },
+
+  methods: {  //Lägg till och ta bort antal hamburgare//
+    Increase: function () {
+      this.amountOrdered += 1;
+    },
+
+    Decrease: function () {
+      if (this.amountOrdered != 0) {
+        this.amountOrdered -= 1
+      }
     }
   }
+  };
+
+
+
   </script>
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->

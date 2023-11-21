@@ -66,24 +66,24 @@
 
             <p>
                 <label for="full name">Fullständigt namn</label><br>
-                <input type="text" id="full name" name="fn" required="required" placeholder="För - och efternamn">
+                <input type="text" id="full name" v-model="fn" required="required" placeholder="För - och efternamn">
             </p>
             <p>
                 <label for="email">E - mail</label><br>
-                <input type="text" id="email" name="em" placeholder="E - mailadress">
+                <input type="text" id="email" v-model="em" placeholder="E - mailadress">
             </p>
             <p>
                 <label for="street">Gata</label><br>
-                <input type="text" id="street" name="st" placeholder="Gatuadress">
+                <input type="text" id="street" v-model="st" placeholder="Gatuadress">
             </p>
             <p>
                 <label for="house">Hus</label><br>
-                <input type="number" id="street" name="ho" placeholder="Husnummer">
+                <input type="number" id="street" v-model="hn" placeholder="Husnummer">
             </p>
 
             <p>
                 <label for="payment">Betalningsalternativ</label><br>
-                <select id="payment" name="pay">
+                <select id="payment" v-model="pay">
                     <option>Kortbetalning</option>
                     <option>Swish</option>
                     <option>Klarna</option>
@@ -93,28 +93,29 @@
 
             <p>
                 <label for="gender">Kön </label><br>
-                <input type="radio" id="male" name="gender" value="male">
+                <input type="radio" id="male" v-model="gender" value="male"> 
                 <label for="male">Man</label><br>
             </p>
 
             <p>
-                <input type="radio" id="female" name="gender" value="female">
+                <input type="radio" id="female" v-model="gender" value="female">
                 <label for="female">Kvinna</label><br>
             </p>
 
             <p>
-                <input type="radio" id="non-binary" name="gender" value="non-binary">
+                <input type="radio" id="non-binary" v-model="gender" value="non-binary">
                 <label for="non-binary">Icke - binär</label><br>
             </p>
 
             <p>
-                <input type="radio" id="ej-ange" name="gender" value="ej ange" checked>
+                <input type="radio" id="ej-ange" v-model="gender" value="ej ange" checked>
                 <label for="ej-ange">Vill ej ange</label><br>
             </p>
 
         </section>
 
-        <button class = "skicka" type="submit">
+
+        <button class = "skicka" v-on:click = "handleOrder" type="button">
             Skicka beställning<br>
             <img src="https://cdn.pixabay.com/photo/2016/05/30/14/10/delivery-guy-1424808_1280.png"
                 style="width:90px; height:60px;">
@@ -163,18 +164,37 @@ const socket = io();
 
 
 export default {
-  name: 'HomeView',
+  name: 'HomeView', 
   components: {
     Burger,
   },
 
   data: function () {
     return {
-      burgers: menu,         
+      burgers: menu,
+      fn: '',
+      em:'',
+      st:'',
+      hn: '',
+      pay: '',
+      gender: '',        
   }
   },
 
+
   methods: {
+
+    handleOrder: function () {
+      // Access form data using this
+      console.log("Fullständigt namn:", this.fn);
+      console.log("E-mail:", this.em);
+      console.log("Gata:", this.st);
+      console.log("Husnummer:", this.hn);
+      console.log("Betalningsalternativ:", this.pay);
+      console.log("Kön:", this.gender);
+    },
+
+
     getOrderNumber: function () {
       return Math.floor(Math.random()*100000);
     },
@@ -190,6 +210,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style>

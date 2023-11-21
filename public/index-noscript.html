@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <section class = "rubrik">
+    <header>
+        <h1 class="välkommen"> Välkommen till BURGIR! </h1>
+        <img id= "anslagsbild" src="https://img.freepik.com/premium-photo/pattern-with-burgers-star-that-says-burgers_916191-7615.jpg?size=626&ext=jpg&ga=GA1.1.2113086557.1700244862&semt=ais">
+    </header>
+    </section>
+
+    <main>
+        <section class="hamburgare" id="väljhamburgare">
+            
+                <h1> Välj din burgir! </h1>
+                Här väljer du din hamburgare:
+
+
+                <div class = "wrapper">
+
+                <div class="ingredienser">
+                    <h1> Veggie Bliss </h1>
+                    <img src="https://images-bonnier.imgix.net/files/ifo/production/20220412084608/Kødfri-burger-1.jpg?auto=compress,format&w=1024%201024w"
+                        alt="Span" title="Hamburgare 1" style="width:200px;">
+                    <ul>
+                        <li>Bönbaserad</li>
+                        <li>Ost och grönsaker</li>
+                        <li>Picklad rödlök</li>
+                    </ul>
+
+                </div>
+            
+
+            
+                <div class="ingredienser">
+                    <h1> Meaty Marvel </h1>
+                    <img src="https://www.mathiaszachau.com/wp-content/uploads/2016/05/saftiga-hamburgare-e1463035643226.jpg"
+                        alt="Span" title="Hamburgare 2" style="width:200px;">
+                    <ul>
+                        <li>Kött och bacon</li>
+                        <li>Isbergssallad och tomat</li>
+                        <li>BBQ</li>
+                    </ul>
+                </div>
+          
+
+            
+                <div class="ingredienser">
+
+                <h1> Chicken Charm </h1>
+                <img src="https://marleyspoon.com/media/recipes/80625/main_photos/large/bbq_hahnchenburger_mit_schnittlauchcreme-900bb4cacf5b69472d32eb98b90f6da9.jpeg"
+                    alt="Span" title="Hamburgare 3" style="width:200px;">
+                <ul>
+                    <li>Kyckling</li>
+                    <li>Grillad majs</li>
+                    <li>Vitlökssås</li>
+                </ul>
+            </div>
+                 </div>
+        </section>
+
+
+        <section class = "kundinformation">
+            <h1> Kund information </h1>
+            Här tillhandhåller du nödvändig information:
+
+            <p>
+                <label for="full name">Fullständigt namn</label><br>
+                <input type="text" id="full name" name="fn" required="required" placeholder="För - och efternamn">
+            </p>
+            <p>
+                <label for="email">E - mail</label><br>
+                <input type="text" id="email" name="em" placeholder="E - mailadress">
+            </p>
+            <p>
+                <label for="street">Gata</label><br>
+                <input type="text" id="street" name="st" placeholder="Gatuadress">
+            </p>
+            <p>
+                <label for="house">Hus</label><br>
+                <input type="number" id="street" name="ho" placeholder="Husnummer">
+            </p>
+
+            <p>
+                <label for="payment">Betalningsalternativ</label><br>
+                <select id="payment" name="pay">
+                    <option>Kortbetalning</option>
+                    <option>Swish</option>
+                    <option>Klarna</option>
+                    <option>Bitcoin</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="gender">Kön </label><br>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Man</label><br>
+            </p>
+
+            <p>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Kvinna</label><br>
+            </p>
+
+            <p>
+                <input type="radio" id="non-binary" name="gender" value="non-binary">
+                <label for="non-binary">Icke - binär</label><br>
+            </p>
+
+            <p>
+                <input type="radio" id="ej-ange" name="gender" value="ej ange" checked>
+                <label for="ej-ange">Vill ej ange</label><br>
+            </p>
+
+        </section>
+
+        <button class = "skicka" type="submit">
+            Skicka beställning<br>
+            <img src="https://cdn.pixabay.com/photo/2016/05/30/14/10/delivery-guy-1424808_1280.png"
+                style="width:90px; height:60px;">
+        </button>
+
+
+    </main>
+
+
+
+    <hr>
+    <footer>
+        &copy;
+        End notes
+    </footer>
+
+</body>
+
+
+</html>

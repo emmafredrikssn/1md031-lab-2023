@@ -1,0 +1,22 @@
+
+[
+    {
+      "name": "Veggie Bliss",
+      "kCal": 500,
+      "lactose": false,
+      "gluten": true,
+      "img": "https://images-bonnier.imgix.net/files/ifo/production/20220412084608/Kødfri-burger-1.jpg?auto=compress,format&w=1024%201024w"
+    }, {
+        "name": "Meaty Marvel",
+        "kCal": 800,
+        "lactose": true,
+        "gluten": true,
+        "img": "https://www.mathiaszachau.com/wp-content/uploads/2016/05/saftiga-hamburgare-e1463035643226.jpg"
+      }, {
+        "name": "Chicken Charm",
+        "kCal": 600,
+        "lactose": true,
+        "gluten": false,
+        "img": "https://marleyspoon.com/media/recipes/80625/main_photos/large/bbq_hahnchenburger_mit_schnittlauchcreme-900bb4cacf5b69472d32eb98b90f6da9.jpeg"
+      }
+  ]
