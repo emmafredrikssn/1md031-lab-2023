@@ -17,7 +17,8 @@
                 <div class = "wrapper">
                   <Burger v-for="burger in burgers"
                    v-bind:burger="burger" 
-                   v-bind:key="burger.name"/>
+                   v-bind:key="burger.name"
+                   v-on:orderedBurger="addToOrder($event)"/>
                 
                 <!-- <div class="ingredienser">
                     <h1> Veggie Bliss </h1>
@@ -115,7 +116,7 @@
         </section>
 
 
-        <button class = "skicka" v-on:click = "handleOrder" type="button">
+        <button class = "skicka" v-on:click = "handleOrder">
             Skicka beställning<br>
             <img src="https://cdn.pixabay.com/photo/2016/05/30/14/10/delivery-guy-1424808_1280.png"
                 style="width:90px; height:60px;">
@@ -177,22 +178,26 @@ export default {
       st:'',
       hn: '',
       pay: '',
-      gender: '',        
+      gender: '',
+      orderedBurgers: {},        
   }
   },
 
 
   methods: {
-
     handleOrder: function () {
-      // Access form data using this
       console.log("Fullständigt namn:", this.fn);
       console.log("E-mail:", this.em);
       console.log("Gata:", this.st);
       console.log("Husnummer:", this.hn);
       console.log("Betalningsalternativ:", this.pay);
       console.log("Kön:", this.gender);
+      console.log('Beställda hamburgare:', this.orderedBurgers);
     },
+
+    addToOrder: function (event) {
+  this.orderedBurgers[event.name] = event.amount;
+},
 
 
     getOrderNumber: function () {

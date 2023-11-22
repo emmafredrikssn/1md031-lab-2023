@@ -38,21 +38,38 @@
     data: function () {
     return {
       amountOrdered: 0,
-    }
+    };
   },
 
   methods: {  //Lägg till och ta bort antal hamburgare//
-    Increase: function () {
+    Increase () {
       this.amountOrdered += 1;
+      this.$emit('orderedBurger', {
+        name: this.burger.name,
+        amount: this.amountOrdered,
+      });
     },
+  
 
     Decrease: function () {
       if (this.amountOrdered != 0) {
         this.amountOrdered -= 1
+        this.$emit('orderedBurger', {
+          name: this.burger.name,
+          amount: this.amountOrdered,
+        });
       }
-    }
-  }
-  };
+    },
+
+  addBurger: function () {
+     this.amountOrdered += 1;
+     this.$emit('orderedBurger', { 
+      name:   this.burger.name, 
+      amount: this.amountOrdered                       
+      });
+    },
+  },
+};
 
 
 
