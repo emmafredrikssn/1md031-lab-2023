@@ -73,14 +73,14 @@
                 <label for="email">E - mail</label><br>
                 <input type="text" id="email" v-model="em" placeholder="E - mailadress">
             </p>
-            <p>
+       <!--  <p>
                 <label for="street">Gata</label><br>
                 <input type="text" id="street" v-model="st" placeholder="Gatuadress">
             </p>
             <p>
                 <label for="house">Hus</label><br>
                 <input type="number" id="street" v-model="hn" placeholder="Husnummer">
-            </p>
+            </p> -->
 
             <p>
                 <label for="payment">Betalningsalternativ</label><br>
@@ -94,38 +94,36 @@
 
             <p>
                 <label for="gender">Kön </label><br>
-                <input type="radio" id="male" v-model="gender" value="male"> 
-                <label for="male">Man</label><br>
+                <input type="radio" id="male" v-model="gender" value="Man"> 
+                <label for="Man">Man</label><br>
             </p>
 
             <p>
-                <input type="radio" id="female" v-model="gender" value="female">
-                <label for="female">Kvinna</label><br>
+                <input type="radio" id="female" v-model="gender" value="Kvinna">
+                <label for="Kvinna">Kvinna</label><br>
             </p>
 
             <p>
-                <input type="radio" id="non-binary" v-model="gender" value="non-binary">
-                <label for="non-binary">Icke - binär</label><br>
+                <input type="radio" id="non-binary" v-model="gender" value="Icke binär">
+                <label for="Icke binär">Icke - binär</label><br>
             </p>
 
             <p>
-                <input type="radio" id="ej-ange" v-model="gender" value="ej ange" checked>
+                <input type="radio" id="ej-ange" v-model="gender" value="Vill ej ange" checked>
                 <label for="ej-ange">Vill ej ange</label><br>
             </p>
 
         </section>
 
 
-        <button class = "skicka" v-on:click = "handleOrder">
+        <button class = "skicka" v-on:click = "handleOrder" >
             Skicka beställning<br>
             <img src="https://cdn.pixabay.com/photo/2016/05/30/14/10/delivery-guy-1424808_1280.png"
                 style="width:90px; height:60px;">
+            
         </button>
 
-
     </main>
-
-
 
     <hr>
     <footer>
@@ -133,10 +131,19 @@
         End notes
     </footer>
 
-    <div id="map" v-on:click="addOrder">
-      click here
+
+    <div id="mapcontainer">
+
+    <div id="map" v-on:click="setLocation">  <!--Klicka för leveransadress-->
+      Välj din leveransadress:
+      <div id="dots">
+        <div v-bind:style="{ position: 'absolute', left: location.x + 'px', top: location.y + 'px' }">
+            T
     </div>
   </div>
+</div>
+</div>
+</div>
 
 </template>
 
@@ -177,43 +184,61 @@ export default {
       em:'',
       st:'',
       hn: '',
-      pay: '',
+      pay: 'Kortbetalning',
       gender: '',
-      orderedBurgers: {},        
+      orderedBurgers: {},
+      location: {x:0, y:0},        
   }
   },
 
 
   methods: {
     handleOrder: function () {
-      console.log("Fullständigt namn:", this.fn);
-      console.log("E-mail:", this.em);
-      console.log("Gata:", this.st);
-      console.log("Husnummer:", this.hn);
-      console.log("Betalningsalternativ:", this.pay);
-      console.log("Kön:", this.gender);
-      console.log('Beställda hamburgare:', this.orderedBurgers);
-    },
+    socket.emit("addOrder", { orderId: this.getOrderNumber(),  // Ser till att endast denna rätta adressen skickas vid knapptryck av "skicka beställning"
+            details: { x: this.location.x,
+                       y: this.location.y },
+                       orderItems: this.orderedBurgers,
+                       customerInformation: {  // Personlig information
+                       name: this.fn,
+                       email: this.em,
+                       payment: this.pay,
+                       Gender: this.gender,
+    }
+  });
+},
+                   
+
+
+
+
 
     addToOrder: function (event) {
   this.orderedBurgers[event.name] = event.amount;
 },
 
-
     getOrderNumber: function () {
       return Math.floor(Math.random()*100000);
     },
+
     addOrder: function (event) {
       var offset = {x: event.currentTarget.getBoundingClientRect().left,
                     y: event.currentTarget.getBoundingClientRect().top};
-      socket.emit("addOrder", { orderId: this.getOrderNumber(),
-                                details: { x: event.clientX - 10 - offset.x,
-                                           y: event.clientY - 10 - offset.y },
-                                orderItems: ["Beans", "Curry"]
-                              }
-                 );
-    }
-  }
+      //socket.emit("addOrder", { orderId: this.getOrderNumber(),
+       //                         details: { x: event.clientX - 10 - offset.x,
+        //                                   y: event.clientY - 10 - offset.y },
+          //                      orderItems: ["Beans", "Curry"]
+                                       
+
+    this.location.x = event.clientX -10 - offset.x;  //Förflyttar dot vid klick
+    this.location.y = event.clientY - 25 - offset.y;
+    },
+
+    setLocation: function (event) {
+      this.location.x = event.clientX - 15 - event.currentTarget.getBoundingClientRect().left;
+      this.location.y = event.clientY - 15 -event.currentTarget.getBoundingClientRect().top;
+      console.log("leveransadress")
+    },
+}
 }
 
 </script>
@@ -299,8 +324,17 @@ button:hover { /* Blir blå när musen rör knappen, deliverykillen tutar iväg 
 }
 
   #map {
-    width: 300px;
-    height: 300px;
-    background-color: red;
+    background: url("../../public/img/polacks.jpg");
+    background-size: cover;
+    width: 1920px;
+    height: 1078px;
+    
   }
+
+  #mapcontainer {
+    overflow: scroll;
+    width: 100%;
+    height: 650px;
+  }
+
 </style>
